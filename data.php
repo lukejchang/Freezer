@@ -12,9 +12,14 @@ $base = 'https://ws.admin.washington.edu/student/v5/';
 //curricula query
 $query = 'curriculum.json?year=2014&quarter=autumn&sort_by=on';
 
-if(isset($_GET['section'])){
+if(isset($_GET['curr'])){
     //search for all sections in a curriclum and add delete flags
-    $query = urlencode('section.json?year=2014&quarter=autumn&curriculum_abbreviation='.$_GET['section'].'&delete_flag=WITHDRAWN,SUSPENDED');
+    $query = urlencode('section.json?year=2014&quarter=autumn&curriculum_abbreviation='.$_GET['curr']);
+}
+
+if(isset($_GET['sect'])){
+    //search for specific section info
+
 }
 
 $curl = curl_init($base.$query);

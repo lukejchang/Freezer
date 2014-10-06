@@ -5,11 +5,9 @@
 	<script type="text/javascript" src="getdata.js"></script>
 	</head>
 
-	<body>
-	<div style="color: {{inp}}" ng-controller="dataCtrl">
-		<button ng-click="getData()">click me</button>
-		<div id="resp">{{Text}}</div>	
-		<input ng-model="inp"></input>
-	</div>
+	<body ng-controller="dataCtrl">
+	<div ng-init="init()">
+		{{sections}}
+    </div>
 	</body>
 </html>

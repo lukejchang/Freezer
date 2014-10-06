@@ -1,13 +1,4 @@
-{
-    "Current": {
-        "Href": "/student/v5/curriculum.json?year=2014&quarter=autumn&future_terms=0&department_abbreviation=&college_abbreviation=&page_start=&page_size=",
-        "CollegeAbbreviation": null,
-        "DepartmentAbbreviation": null,
-        "FutureTerms": 0,
-        "Quarter": "autumn",
-        "Year": 2014
-    },
-    "Curricula": [
+[
         {
             "Href": "/student/v5/curriculum/2014,autumn,A%20A.json",
             "CurriculumAbbreviation": "A A",
@@ -3392,10 +3383,4 @@
             "Quarter": "autumn",
             "Year": 2014
         }
-    ],
-    "Next": null,
-    "PageSize": null,
-    "PageStart": null,
-    "Previous": null,
-    "TotalCount": 423
 }
