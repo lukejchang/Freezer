@@ -13,25 +13,28 @@ $base = 'https://ws.admin.washington.edu/student/v5/';
 $query = 'curriculum.json?year=2014&quarter=autumn&sort_by=on';
 
 if(isset($_GET['curr'])){
-    //search for all sections in a curriclum and add delete flags
-    $query = urlencode('section.json?year=2014&quarter=autumn&curriculum_abbreviation='.$_GET['curr']);
+    //search for all sections in a curriclum
+    $req = trim($_GET['curr']);
+    $req = str_replace(' ', '+', $req);
+    $query = 'section.json?year=2014&quarter=autumn&curriculum_abbreviation=' . $req;
 }
 
-if(isset($_GET['sect'])){
-    //search for specific section info
 
-}
+    //any other query
+    $curl = curl_init($base.$query);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+        'Authorization: Bearer e6581efe-8b1c-4552-b7e3-10d264f6fd21',
+        'Accept: text/plain'
+    ));
 
-$curl = curl_init($base.$query);
+    $res = json_decode(curl_exec($curl));
+
+
+
 
 //curl_exec prints results by default; this disables it
 //curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
-curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-    'Authorization: Bearer e6581efe-8b1c-4552-b7e3-10d264f6fd21',
-    'Accept: text/plain'
-));
 
-$res = json_decode(curl_exec($curl));
 
 

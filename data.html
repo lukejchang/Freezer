@@ -1,13 +1,14 @@
 <html ng-app="dataApp">
 	<head>
 	<title> TESTING UW SWS API</title>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.1/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.1/angular.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="getdata.js"></script>
 	</head>
 
 	<body ng-controller="dataCtrl">
-	<div ng-init="init()">
-		{{sections}}
-    </div>
+        <div ng-init="init()">
+            {{final}}
+        </div>
 	</body>
 </html>
