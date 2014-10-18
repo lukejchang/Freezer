@@ -1,0 +1,46 @@
+<!--<?php
+/*/**
+ * Jin-li Chang
+ * PHP file for filling out schedule based on classes
+ */
+
+if(post)
+
+// creates 5x84 2d array of 0s
+    $week = array(); // array of columns
+for($c=0; $c<5; $c++){ // 5 days of the week
+    $week[$c] = array(); // array of cells for column $c
+    for($r=0; $r<84; $r++){ //10 minute blocks from 8am to 10pm
+        $week[$c][$r] = 0;
+    }
+}
+
+if($_POST){
+    print_r($_POST);
+}
+*/?>-->
+
+<!DOCTYPE html>
+<html ng-app="freezerApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>UW Course Schedule Compare</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.1/angular.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</head>
+<body ng-controller="indexCtrl">
+<form novalidate ng-submit="submit()">
+    Enter the Curriculum/Department, number, and section for each course you're currently taking.
+    <div ng-repeat="box in placeholders">
+        <!--SLN: <input type="number" ng-model="results[$index].sln" placeholder="{{box[0]}}" ng-pattern="/^[0-9]{5}$/">-->
+        Curriculum/Department: <input type="text" ng-model="results[$index].cur" ng-required="results[$index].number || results[$index].section" placeholder="{{box[0]}}" ng-pattern="/^[A-Z]{1,3}[ ]{0,1}[A-Z]{1,3}$/i" title="Curriculum abbreviation" ng-disabled="results[$index].sln">
+        Course number: <input type="number" ng-model="results[$index].number" ng-required="results[$index].name || results[$index].section" placeholder="{{box[1]}}" ng-pattern="/^[0-9]{3}$/" title="3-digit course number" ng-disabled="results[$index].sln">
+        Section: <input type="text" ng-model="results[$index].section" ng-required="results[$index].name || results[$index].number" placeholder="{{box[2]}}" ng-maxlength=2 title="Section" ng-disabled="results[$index].sln">
+    </div>
+
+    <br>
+    <input type="submit">
+</form>
+</body>
+</html>
